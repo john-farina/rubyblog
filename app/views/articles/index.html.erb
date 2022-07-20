@@ -1,0 +1,15 @@
+<h2>Articles</h2>
+
+We have <%= Article.public_count %> public posts and counting!
+
+<ul>
+<% @articles.each do |article| %>
+    <% unless article.archived? %>
+      <li>
+      <%= link_to article.title, article %>
+      </li>
+    <% end %>
+  <% end %>
+</ul>
+
+<%= link_to "New Article", new_article_path %>
